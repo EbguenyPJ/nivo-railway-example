@@ -29,6 +29,7 @@ export class TodosService {
       ...createTodoDto,
       completed: createTodoDto.completed ?? false,
     });
+    // console.log("Hola mundo");
     return this.todoRepository.save(todo);
   }
 
