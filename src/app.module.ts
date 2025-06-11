@@ -1,3 +1,7 @@
+import * as crypto from 'crypto';
+// @ts-ignore
+global.crypto = crypto;
+
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import typeorm from './config/typeorm';
