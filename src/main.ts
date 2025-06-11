@@ -28,9 +28,8 @@ async function bootstrap() {
         );
         return 8080;
       })();
-  console.log('🌐 Env Vars:', process.env);
-  console.log('⛳️ PORT ENV:', process.env.PORT);
-  await app.listen(port);
+
+  await app.listen(port, '0.0.0.0'); // ✅ escucha en todas las interfaces
 
   // ✅ Log explícito del puerto en Railway
   console.log(`🚀 App running on port ${port}`);
