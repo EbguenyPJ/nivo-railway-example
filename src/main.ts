@@ -20,7 +20,16 @@ async function bootstrap() {
   );
 
   // Forzamos parseo correcto del puerto
-  const port = parseInt(process.env.PORT || '3000', 10);
+  const port = process.env.PORT
+    ? parseInt(process.env.PORT, 10)
+    : (() => {
+        console.warn(
+          '⚠️ WARNING: process.env.PORT is undefined, defaulting to 8080',
+        );
+        return 8080;
+      })();
+  console.log('🌐 Env Vars:', process.env);
+  console.log('⛳️ PORT ENV:', process.env.PORT);
   await app.listen(port);
 
   // ✅ Log explícito del puerto en Railway
