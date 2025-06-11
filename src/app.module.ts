@@ -1,6 +1,9 @@
-import * as crypto from 'crypto';
-// @ts-ignore
-global.crypto = crypto;
+import { webcrypto } from 'crypto';
+
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto as Crypto;
+}
+
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import typeorm from './config/typeorm';
